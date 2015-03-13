@@ -1,0 +1,47 @@
+<script type="text/x-red" data-template-name="display">
+	This node do not need to be configured
+</script>
+<script type="text/x-red" data-help-name="display">
+    <p>The Display node can be connected to the output of any node. It displays <b>msg.payload</b>.</p>
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType('display',{
+        category: 'output',
+        defaults: {
+			active: {value:true}
+		},
+        label: function() {
+			return "display";
+        },
+        color:"#87a980",
+        inputs:1,
+        outputs:0,
+        icon: "debug.png",
+        align: "right",
+        button: {
+            toggle: "active",
+            onclick: function() {
+                $.ajax({
+                    url: "debug/"+this.id+"/"+(this.active?"enable":"disable"),
+                    type: "POST",
+                    success: function(resp, textStatus, xhr) {
+                        if (xhr.status == 200) {
+                            RED.notify("Successfully activated","success");
+                        } else if (xhr.status == 201) {
+                            RED.notify("Successfully deactivated","success");
+                        }
+                    },
+                    error: function(jqXHR,textStatus,errorThrown) {
+                        if (jqXHR.status == 404) {
+                            RED.notify("<strong>Error</strong>: debug node not deployed","error");
+                        } else if (jqXHR.status == 0) {
+                            RED.notify("<strong>Error</strong>: no response from server","error");
+                        } else {
+                            RED.notify("<strong>Error</strong>: unexpected error: ("+err.status+") "+err.response,"error");
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
