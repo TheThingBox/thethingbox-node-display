@@ -1,0 +1,19 @@
+{
+  "name": "ttb-node-display",
+  "version": "1.0.1",
+  "description": "This node displays the payload in the debug tab.",
+  "node-red": {
+      "nodes": {
+          "display": "display.js"
+      }
+  },
+  "keywords": [
+    "thingbox",
+    "thethingbox",
+    "timesquair",
+    "display",
+    "debug"
+  ],
+  "author": "http://www.digitalairways.com/",
+  "license": "http://www.wtfpl.net"
+}
