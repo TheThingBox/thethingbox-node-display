@@ -1,5 +1,8 @@
 {
-    "display": {
-        "desc": "Ce node n'a pas besoin d'être configuré"
-    }
+  "display": {
+    "name": "Nom",
+    "template": "Modèle",
+    "desc": "Ce node n'a pas besoin d'être configuré",
+    "tip": "<p>L'entrée modèle sera rendu avec mustache en utilisant l'objet <code>msg</code>.</p><br/><p>Pour exemple: si le modèle<br/><pre>Bonjour {{payload.name}}. Aujourd'hui, on est {{date}}</pre><p>reçoit un message contenant:<br/><pre>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;date: 'Lundi',<br/>&nbsp;&nbsp;&nbsp;&nbsp;payload: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Fred'<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}</pre><p>Le message qui en résultera sera:<br/><pre>Bonjour Fred. Aujourd'hui, on est Lundi</pre><br/><p><b>Note: </b>Par défaut, <i>mustache</i> échappera toute entité HTML dans les valeurs qu’elle remplace.<br/>Pour éviter cela, utilisez des <code>{{{triple}}}</code> accolades.<br/><br/>Voir <a href='https://mustache.github.io/mustache.5.html' target='_blank'>mustache</a><br/><br/>Si vous laissez cette entrée vide, le modèle par défaut sera :<br/><pre>{{#message}}{{{message}}}{{/message}}{{^message}}{{{payload}}}{{/message}}</pre><br/>Cela signifie que <code>msg.message</code> sera affiché s'il existe, sinon c'est <code>msg.payload</code> qui sera affiché."
+  }
 }

@@ -1,5 +1,8 @@
 {
-    "display": {
-        "desc": "This node do not need to be configured"
-    }
+  "display": {
+    "name": "Name",
+    "template": "Template",
+    "desc": "This node do not need to be configured",
+    "tip": "<p>Template will be rendered with mustache using the msg Object.</p><br/><p>For example, when a template of:<br/><pre>Hello {{payload.name}}. Today is {{date}}</pre><p>receives a message containing:<br/><pre>{<br/>&nbsp;&nbsp;&nbsp;&nbsp;date: 'Monday',<br/>&nbsp;&nbsp;&nbsp;&nbsp;payload: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: 'Fred'<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>}</pre><p>The resulting property will be:<br/><pre>Hello Fred. Today is Monday</pre><br/><p><b>Note: </b>By default, <i>mustache</i> will escape any HTML entities in the values it substitutes.<br/>To prevent this, use <code>{{{triple}}}</code> braces.<br/><br/>See <a href='https://mustache.github.io/mustache.5.html' target='_blank'>mustache</a><br/><br/>If you leave blank this input, the default template will be :<br/><pre>{{#message}}{{{message}}}{{/message}}{{^message}}{{{payload}}}{{/message}}</pre><br/>This means that will be displayed <code>msg.message</code> if it exists, otherwise <code>msg.payload</code> will be displayed."
+  }
 }
