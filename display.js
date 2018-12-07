@@ -67,7 +67,9 @@ module.exports = function(RED) {
           showFormat = false;
         }
       }
-      output = Mustache.render(template, RED.util.cloneMessage(msg));
+      if(typeof output === 'string' || output instanceof String){
+        output = Mustache.render(template, RED.util.cloneMessage(msg));
+      }
       if (this.active) {
         sendDebug({id:node.id, z:node.z, name:node.name, topic:msg.topic, property:property, msg:output, _path:msg._path, showHeader:false, propertyIsFromMsg:propertyIsFromMsg, showTopic:showTopic, showFormat:showFormat});
       }
