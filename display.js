@@ -62,6 +62,7 @@ module.exports = function(RED) {
         if(mustache_left_part_count === mustache_right_part_count){
           template = node.template;
           property = template;
+          output = template;
           propertyIsFromMsg = false;
           showTopic = false;
           showFormat = false;
